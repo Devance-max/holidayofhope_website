@@ -6,9 +6,10 @@
 }
 
 :root {
-    --primary-color: #c41e3a;
-    --secondary-color: #1a5490;
+    --primary-color: #aa3428;
+    --secondary-color: #8b2a20;
     --accent-color: #ffd700;
+    --accent-green: #2d5016;
     --text-dark: #2c3e50;
     --text-light: #ffffff;
     --bg-light: #f8f9fa;
@@ -43,7 +44,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: var(--primary-color);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
     overflow: hidden;
 }
 
@@ -54,8 +57,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-    animation: float 20s infinite linear;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: 20px 20px;
+    opacity: 0.8;
 }
 
 .hero-overlay {
@@ -64,7 +69,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.15);
     z-index: 1;
 }
 
@@ -77,25 +82,47 @@ body {
 }
 
 .hero-title {
-    font-size: 4.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Allura', 'Great Vibes', 'Dancing Script', cursive;
+    font-size: 6.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 4px 25px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.2);
     letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    color: #FFF8E7;
+    line-height: 1.1;
+    animation: titleFadeIn 1.2s ease-out;
+}
+
+.hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255, 248, 231, 0.9), transparent);
+    animation: lineExpand 1s ease-out 0.8s both;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 300;
-    margin-bottom: 2rem;
-    opacity: 0.95;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    letter-spacing: 2px;
+    font-style: italic;
+    animation: subtitleFadeIn 1.2s ease-out 0.4s both;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
+    animation: buttonsFadeIn 1.2s ease-out 0.6s both;
 }
 
 .btn {
@@ -119,9 +146,10 @@ body {
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
     box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
     background: #ffed4e;
+    animation: buttonPulse 0.6s ease-in-out;
 }
 
 .btn-secondary {
@@ -133,7 +161,8 @@ body {
 .btn-secondary:hover {
     background: var(--text-light);
     color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
+    animation: buttonPulse 0.6s ease-in-out;
 }
 
 /* Scroll Indicator */
@@ -179,7 +208,21 @@ body {
     margin-bottom: 1rem;
     color: var(--text-dark);
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::before {
+    content: '✦';
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    opacity: 0.4;
+    color: var(--primary-color);
+    animation: twinkle 3s ease-in-out infinite;
 }
 
 .section-title::after {
@@ -192,6 +235,36 @@ body {
     height: 4px;
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     border-radius: 2px;
+}
+
+.section-title-wrapper {
+    position: relative;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section-title-wrapper::before {
+    content: '✦';
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    opacity: 0.4;
+    color: var(--primary-color);
+    animation: twinkle 3s ease-in-out infinite 0.5s;
+}
+
+.section-title-wrapper::after {
+    content: '✦';
+    position: absolute;
+    right: calc(50% - 200px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    opacity: 0.4;
+    color: var(--primary-color);
+    animation: twinkle 3s ease-in-out infinite 1s;
 }
 
 .section-subtitle {
@@ -222,7 +295,13 @@ body {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    animation: cardFadeIn 0.8s ease-out both;
 }
+
+.detail-card:nth-child(1) { animation-delay: 0.1s; }
+.detail-card:nth-child(2) { animation-delay: 0.2s; }
+.detail-card:nth-child(3) { animation-delay: 0.3s; }
+.detail-card:nth-child(4) { animation-delay: 0.4s; }
 
 .detail-card::before {
     content: '';
@@ -249,6 +328,13 @@ body {
     font-size: 3rem;
     margin-bottom: 1rem;
     display: block;
+    animation: iconBounce 2s ease-in-out infinite;
+    transition: var(--transition);
+}
+
+.detail-card:hover .detail-icon {
+    animation: iconBounce 0.6s ease-in-out infinite;
+    transform: scale(1.1);
 }
 
 .detail-card h3 {
@@ -299,7 +385,13 @@ body {
     aspect-ratio: 1;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    animation: galleryFadeIn 0.8s ease-out both;
 }
+
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
 
 .gallery-item:hover {
     transform: scale(1.05);
@@ -350,6 +442,13 @@ body {
     border-radius: 15px;
     text-align: center;
     box-shadow: var(--shadow);
+    transition: var(--transition);
+    animation: cardFadeIn 0.8s ease-out both;
+}
+
+.qr-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
 .qr-card h3 {
@@ -371,6 +470,7 @@ body {
     justify-content: center;
     color: #999;
     transition: var(--transition);
+    animation: gentlePulse 3s ease-in-out infinite;
 }
 
 .qr-code-placeholder:hover {
@@ -402,6 +502,13 @@ body {
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: var(--shadow);
+    transition: var(--transition);
+    animation: cardFadeIn 0.8s ease-out 0.2s both;
+}
+
+.donation-info:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
 .donation-info h3 {
@@ -441,6 +548,13 @@ body {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow);
+    transition: var(--transition);
+    animation: cardFadeIn 0.8s ease-out both;
+}
+
+.map-container:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
 }
 
 #map {
@@ -486,7 +600,12 @@ body {
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    animation: cardFadeIn 0.8s ease-out both;
 }
+
+.contact-card:nth-child(1) { animation-delay: 0.1s; }
+.contact-card:nth-child(2) { animation-delay: 0.2s; }
+.contact-card:nth-child(3) { animation-delay: 0.3s; }
 
 .contact-card:hover {
     transform: translateY(-10px);
@@ -576,6 +695,158 @@ body {
     }
 }
 
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(-1deg) translateY(0);
+    }
+    25% {
+        transform: rotate(0deg) translateY(-5px);
+    }
+    50% {
+        transform: rotate(1deg) translateY(0);
+    }
+    75% {
+        transform: rotate(0deg) translateY(-5px);
+    }
+}
+
+@keyframes gentlePulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-50%) scale(1.2);
+    }
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes iconBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes galleryFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) rotate(2deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        transform: translateY(-3px) scale(1.05);
+    }
+    50% {
+        transform: translateY(-3px) scale(1.08);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes titleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtitleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonsFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineExpand {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 100px;
+        opacity: 1;
+    }
+}
+
 .animate-fade-in {
     animation: fadeIn 1s ease-out;
 }
@@ -602,7 +873,8 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 3rem;
+        font-size: 4.5rem;
+        letter-spacing: 1px;
     }
 
     .hero-subtitle {
@@ -639,7 +911,12 @@ body {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
     }
 
     .section {
