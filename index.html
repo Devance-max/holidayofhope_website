@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Of Hope - Christmas Donation Drive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">Holiday Of Hope</h1>
+            <p class="hero-subtitle animate-fade-in-delay">Spreading Joy This Christmas Season</p>
+            <div class="hero-buttons animate-fade-in-delay-2">
+                <a href="#details" class="btn btn-primary">Learn More</a>
+                <a href="#donate" class="btn btn-secondary">Donate Now</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- Event Details Section -->
+    <section class="section details-section" id="details">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Event Details</h2>
+            <div class="details-grid">
+                <div class="detail-card animate-on-scroll">
+                    <div class="detail-icon">📅</div>
+                    <h3>Date & Time</h3>
+                    <p id="event-date">December 20, 2026</p>
+                    <p id="event-time">10:00 AM - 2:00 PM</p>
+                </div>
+                <div class="detail-card animate-on-scroll">
+                    <div class="detail-icon">📍</div>
+                    <h3>Location</h3>
+                    <p id="event-location">loc</p>
+                    <p id="event-address">addy</p>
+                </div>
+                <div class="detail-card animate-on-scroll">
+                    <div class="detail-icon">🎁</div>
+                    <h3>What We Need</h3>
+                    <p>Toys, Clothing, Food Items, Books, and Monetary Donations</p>
+                </div>
+                <div class="detail-card animate-on-scroll">
+                    <div class="detail-icon">❤️</div>
+                    <h3>Mission</h3>
+                    <p>Devance Williams blah blah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">About Holiday Of Hope</h2>
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <p>
+                        Holiday Of Hope is a community-driven initiative dedicated to spreading joy and 
+                        providing essential support to families in need during the Christmas season. 
+                        Through the generosity of our community, we aim to make the holidays brighter 
+                        for everyone.
+                    </p>
+                    <p>
+                        Your donations, whether monetary or in-kind, help us provide toys, clothing, 
+                        food, and other essential items to families who need them most. Every contribution, 
+                        no matter how small, makes a significant difference in someone's life.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Gallery</h2>
+            <p class="section-subtitle">pics here</p>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Gallery items will be added dynamically or manually -->
+                <div class="gallery-item animate-on-scroll">
+                    <div class="gallery-placeholder">
+                        <span>+ Add Photo</span>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <div class="gallery-placeholder">
+                        <span>+ Add Photo</span>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <div class="gallery-placeholder">
+                        <span>+ Add Photo</span>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <div class="gallery-placeholder">
+                        <span>+ Add Photo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Code Section -->
+    <section class="section qr-section" id="donate">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Donate Now</h2>
+            <p class="section-subtitle">Scan the QR code to make a donation</p>
+            <div class="qr-container">
+                <div class="qr-card animate-on-scroll">
+                    <h3>Quick Donation</h3>
+                    <div class="qr-code-placeholder" id="qr-code">
+                        <span>QR Code</span>
+                        <p>venmo qr code?</p>
+                    </div>
+                    <p class="qr-instructions">Scan with your phone camera to donate using venmo</p>
+                </div>
+                <div class="donation-info animate-on-scroll">
+                    <h3>Other Ways to Donate</h3>
+                    <ul>
+                        <li>Cash donations accepted at the event</li>
+                        <li>In-kind donations: toys, clothing, food items</li>
+                        <li>Online donations via our website</li>
+                        <li>Contact us for large item donations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section with Google Maps -->
+    <section class="section location-section" id="location">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Find Us</h2>
+            <p class="section-subtitle">Visit us at our event location</p>
+            <div class="map-container animate-on-scroll">
+                <div id="map"></div>
+                <div class="map-info">
+                    <h3>Event Location</h3>
+                    <p id="map-address">addy</p>
+                    <a href="#" id="directions-link" target="_blank" class="btn btn-primary">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p id="contact-email">holidayofhopes@gmail.com</p>
+                </div>
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <p id="contact-phone">(832) 269-6244</p>
+                </div>
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Social Media</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Holiday Of Hope. All rights reserved.</p>
+            <p>Presented by Devance Williams</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
