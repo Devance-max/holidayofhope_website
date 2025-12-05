@@ -167,66 +167,18 @@ function updateEventDetails() {
     }
 }
 
-// Image upload handler for gallery (optional - for future enhancement)
-function handleImageUpload(event) {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-        Array.from(files).forEach(file => {
-            if (file.type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const galleryGrid = document.getElementById('gallery-grid');
-                    const newItem = document.createElement('div');
-                    newItem.className = 'gallery-item animate-on-scroll';
-                    newItem.innerHTML = `<img src="${e.target.result}" alt="Gallery image">`;
-                    galleryGrid.appendChild(newItem);
-                    observer.observe(newItem);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    }
-}
-
-// QR Code upload handler (optional - for future enhancement)
-function handleQRCodeUpload(event) {
-    const file = event.target.files[0];
-    if (file && file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const qrPlaceholder = document.getElementById('qr-code');
-            qrPlaceholder.innerHTML = `<img src="${e.target.result}" alt="QR Code">`;
-        };
-        reader.readAsDataURL(file);
-    }
-}
-
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     updateEventDetails();
     
-    // Add click handlers for gallery placeholders (optional)
-    const galleryPlaceholders = document.querySelectorAll('.gallery-placeholder');
-    galleryPlaceholders.forEach(placeholder => {
-        placeholder.addEventListener('click', () => {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = 'image/*';
-            input.multiple = true;
-            input.addEventListener('change', handleImageUpload);
-            input.click();
-        });
-    });
-
-    // Add click handler for QR code placeholder (optional)
-    const qrPlaceholder = document.getElementById('qr-code');
-    if (qrPlaceholder) {
-        qrPlaceholder.addEventListener('click', () => {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = 'image/*';
-            input.addEventListener('change', handleQRCodeUpload);
-            input.click();
+    // Remove placeholder styling when images load successfully
+    const qrCodeImg = document.querySelector('#qr-code img');
+    if (qrCodeImg) {
+        qrCodeImg.addEventListener('load', function() {
+            this.parentElement.style.border = 'none';
+            this.parentElement.style.background = 'transparent';
+            this.parentElement.style.animation = 'none';
+            this.parentElement.style.padding = '0';
         });
     }
 });
