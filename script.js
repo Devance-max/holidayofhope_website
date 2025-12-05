@@ -3,7 +3,7 @@
 const EVENT_LOCATION = {
     lat: 40.7128,  // Replace with your latitude
     lng: -74.0060, // Replace with your longitude
-    address: 'addy here' // Replace with your address
+    address: 'Location will be released closer to the event' // Replace with your address
 };
 
 let map;
